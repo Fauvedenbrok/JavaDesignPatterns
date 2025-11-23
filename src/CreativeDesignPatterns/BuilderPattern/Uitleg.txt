@@ -1,0 +1,43 @@
+BUILDER PATTERN
+
+Hoe complexer de klassen worden, hoe meer constructor parameters er nodig zijn om een object te initialiseren. Dit kan leiden tot onoverzichtelijke en foutgevoelige code, vooral wanneer sommige parameters optioneel zijn. Daarnaast is het moeilijk om te onthouden welke parameter op welke positie hoort, waardoor het onleesbaar en onduidelijk wordt.
+Voorbeeldklasse Person waarbij sommige velden verplicht zijn en andere optioneel:
+
+public class Person {
+    private final String firstName;      // verplicht
+    private final String lastName;       // verplicht
+    private final String dateOfBirth;    // verplicht
+    private final String middleName;     // optioneel
+    private final String emailAddress;   // optioneel
+    private final String streetAddress;  // optioneel
+    private final String phoneNumber;    // optioneel
+    private final String idNumber;       // optioneel
+
+    // constructor met alle parameters
+    public Person(String firstName, String lastName, String dateOfBirth, String middleName, String emailAddress, String streetAddress, String phoneNumber, String idNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.middleName = middleName;
+        this.emailAddress = emailAddress;
+        this.streetAddress = streetAddress;
+        this.phoneNumber = phoneNumber;
+        this.idNumber = idNumber;
+    }
+
+    // getters...
+}
+
+
+Een immutable Person klasse kan een constructor hebben zoals deze:
+
+    public Person(String firstName, String lastName, String dateOfBirth, String middleName, String emailAddress, String streetAddress, String phoneNumber, String idNumber
+    ) { }
+
+wanneer een object hiervan wordt gemaakt, is het erg onduidelijk welk argument waarvoor is, vooral als sommige optionele parameters worden weggelaten. Niet elke IDE geeft namelijk de benaming van de parameters weer bij het aanroepen van de constructor:
+
+    new Person("John", null, "1990-01-01", "M", null, "123 Main St", null, "ID12345");
+
+	Foutgevoelig
+
+Je zou een unieke constructor per combinatie, maar dit is onhandig en volgt niet het DRY principe. Voor de person klasse hierboven zou je 32 verschillende constructors moeten maken

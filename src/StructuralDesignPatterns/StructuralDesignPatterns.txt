@@ -1,0 +1,7 @@
+Structurele design patronen zijn bedoeld om de structuur van klassen en objecten te vergemakkelijken, waardoor het eenvoudiger wordt om grote systemen te bouwen en te onderhouden. Deze zijn onder te verdelen in klasse patronen en object patronen. het belangrijkste verschil is daarbij dit:
+- Klasse patronen: dit gaat om de "is een" relatie tussen klassen en hun subklassen (erfenis).
+- Object patronen: dit gaat om de "heeft een" relatie tussen objecten (compositie).
+Bijvoorbeeld, de klasse Auto is een Voertuig (klasse patroon), terwijl een Auto een Motor heeft (object patroon).
+
+Klasse patronen: deze worden gebruikt om relaties tussen klassen te structureren dmv erfenis
+Object patronen: deze worden gebruikt om relaties tussen objecten te structureren, de complexiteit van de objecten te verminderen en hoe objecten met elkaar communiceren.

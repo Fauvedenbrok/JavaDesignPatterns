@@ -1,0 +1,16 @@
+De factory method pattern komt vooral van pas bij het maken van concrete klassen. In de essentie zorgt dit patroon ervoor dat de hoofdlogica gescheiden blijft van de creatielogica. Bijvoorbeeld; een ticket machine.
+
+--> TicketMachine is een applicatie waarmee mensen tickets kunnen kopen. Wellicht is dit in het begin maar 1 soort ticket, maar wil je dit graag uitbreiden. Je zou hiervoor dus verschillende klassen kunnen aanmaken: treinTicket, busTicket en metroTicket.
+
+Het probleem hiermee is dat wanneer je over new busTicket(), new trainTicket() of new metroTicket() aanroept, je code volstaat met concrete klassen. Het toevoegen van een nieuw soort ticket is niet onderhoudbaar, daar je overal aanpassingen moet maken. Het liefst wil je het maken van een object op één centrale plek beheren, zonder dat je direct weet welk object dat gaat zijn.
+
+De factory method in bovenstaand geval werkt dan als volgt:
+- Je TicketMachine bevat een methode genaamd createTicket(). TicketMachine weet dus alleen dat er een ticket gemaakt moet worden, maar weet niet welke dit moet zijn
+- het bepalen van de soort tickets worden gedaan door een subklasse genaamd BusTicketMachine, TrainTicketMachine of MetroTicketMachine. deze geven vervolgens een klasse BusTicket, MetroTicket of TrainTicket terug
+
+Uitbreiden van het soort tickets is in dat geval heel simpel; je creeert een nieuwe ticketmachine (bijv. FerryTicketMachine) en een nieuwe klasse genaamd FerryTicket.
+Wijzigingen van bijv bestaande ticketprijzen kunnen eenvoudig worden aangepast in de desbetreffende ticketmachine. Dit heeft dan geen effect op verdere creatie logica
+
+In het kort; de factory method gebruik je wanneer een klasse instanties moet maken van een andere klasse, zónder daarvoor te moeten weten welk concrete type die klasse moet zijn
+
+In deze challenge wordt er gebruik gemaakt van een hashmap om te bepalen welke snack in de VendingMachine wordt gekozen.

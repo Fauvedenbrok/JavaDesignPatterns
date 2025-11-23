@@ -1,0 +1,9 @@
+Het adapter patroon kan gebruikt wanneer je twee incompatibele interfaces of klasses met elkaar wilt laten samenwerken. De benaming van het patroon is afgeleid van een fysieke adapter die je gebruikt om apparaten met verschillende stekkers aan te sluiten op een stopcontact. Een EU adapter past bijvoorbeeld niet in een Engelse stopcontact, maar met een koppelstuk ertussen kun je het toch gebruiken.
+
+De use case voor dit patroon is vooral wanneer je bestaande code hebt die je niet kunt of wilt aanpassen, maar die wel moet samenwerken met nieuwe code. Het beste voorbeeld is het toevoegen van nieuwe features op legacy code.
+
+Er zijn twee verschillende soorten adapters: de class adapter en de object adapter.
+
+Object adapter: Deze komt het meest voor en maakt gebruik van compositie. De adapter klasse bevat een instantie van de klasse die aangepast moet worden en roept de benodigde methodes aan om de gewenste functionaliteit te bieden.
+
+Klass adapter: Deze komt minder vaak voor omdat het gebruik maakt van multiple inheritance, wat niet in alle programmeertalen wordt ondersteund (waaronder Java en Kotlin). De klass adapter erft zowel van de interface die aangepast moet worden als van de klasse die aangepast moet worden.

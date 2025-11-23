@@ -1,0 +1,21 @@
+Het prototype patroon is een ontwerppatroon dat wordt gebruikt om nieuwe objecten te maken door bestaande objecten te kopiëren, in plaats van ze vanaf nul te creëren. Dit kan vooral handig zijn wanneer het maken van een nieuw object duur of complex is, en je snel meerdere vergelijkbare objecten nodig hebt.
+
+Neem als voorbeeld het volgende:
+
+je hebt een user interface genaamd Bos. Dit wil je vullen met bomen, waarvan je bijvoorbeeld 50 Oak, 50 Fir en 50 Birch bomen wilt hebben. In plaats van elke boom afzonderlijk te creëren met eindeloos veel constructors, wat er zo uit zou zien:
+var oakTree1 = new Tree("Oak");
+var oakTree2 = new Tree("Oak");
+var oakTree3 = new Tree("Oak");
+// ...en zo verder voor alle 50 Oak bomen
+var firTree1 = new Tree("Fir");
+var firTree2 = new Tree("Fir");
+// ...en zo verder voor alle 50 Fir bomen
+var birchTree1 = new Tree("Birch");
+var birchTree2 = new Tree("Birch");
+// ...en zo verder voor alle 50 Birch bomen
+
+Je zou dan van iedere Tree klasse een subverdeling kunnen maken, zoals OakTree, FirTree en BirchTree. Maar dit zou nog steeds veel herhaling van code betekenen. Daarnaast wordt het ontzettend onhandig als je later eigenschappen van de bomen wilt aanpassen, omdat je dan in elke subklasse wijzigingen moet aanbrengen. Dit systeem is niet schaalbaar en onderhoudbaar, zeker wanneer je je Bos wil uitbreiden met meer boomsoorten.
+
+In plaats daarvan kun je een prototype van elke boomsoort maken en deze vervolgens klonen om de benodigde aantallen te verkrijgen. Je geeft de prototype de gewenste eigenschappen en gebruikt een clone-methode om nieuwe objecten te maken. Java ondersteund dit bijvoorbeeld via de Cloneable interface, maar deze interface heeft zijn beperkingen en is niet altijd de beste keuze. Daarnaast zul je een hoop exceptions moeten afhandelen, die weinig verder nut dienen. Om die reden gebruik ik in de solution een eigen clone-methode.
+
+In deze challenge wordt er een Cityscape gemaakt. Elk item in de cityscape is een Graphic. Het type Building erft van Graphic over, en Building kan 1 van 2 types zijn: House of Skyscraper. In plaats van elke House en Skyscraper afzonderlijk te creëren, maak je een prototype van elk type Building en gebruik je de clone-methode om de benodigde aantallen te verkrijgen.

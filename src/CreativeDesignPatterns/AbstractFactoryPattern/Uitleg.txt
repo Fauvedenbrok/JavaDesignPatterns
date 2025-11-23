@@ -1,0 +1,16 @@
+de Abstract Factory Pattern is een ontwerppatroon dat ervoor zorgt dat je gerelateerde objecten kunt creëren zonder dat je de specifieke klassen van die objecten hoeft te kennen. Het patroon definieert een interface voor het maken van families van gerelateerde of afhankelijke objecten zonder hun concrete klassen te specificeren.
+
+Het verschil met het Factory Method Pattern is dat de Abstract Factory Pattern meerdere gerelateerde objecten tegelijk kan creëren, terwijl de Factory Method Pattern zich richt op het creëren van één object per keer.
+
+Een goed voorbeeld is een applicatie die verschillende thema's ondersteunt, zoals een licht thema en een donker thema. Met de Abstract Factory Pattern kun je een abstracte fabriek definiëren die methoden bevat voor het maken van verschillende UI-componenten (zoals knoppen, tekstvakken, enz.) voor elk thema. Wanneer de gebruiker van thema wisselt, wilt men immers niet dat alleen bijvoorbeeld de knoppen veranderen, maar ook alle andere UI-componenten.
+
+Om dit te realiseren zijn de volgende zaken belangrijk om rekening mee te houden:
+- het systeem moet losstaan van hoe objecten worden gecreëerd, samengesteld en vertegenwoordigd.
+- het systeem moet werken met verschillende families van gerelateerde objecten.
+- de familie van gecreerde objecten moet gegarandeerd compatibel zijn.
+- het moet mogelijk zijn om nieuwe families van producten toe te voegen zonder bestaande code te wijzigen.
+
+Zie de afbeelding hoe dit uitziet met een blauw en roodthema van de UI
+
+Voordeel van dit patroon: Concrete klassen zijn geïsoleerd van de client code. Unit testen zijn eenvoudiger omdat je mock factories kunt gebruiken.
+Nadeel van dit patroon: Het kan leiden tot een groot aantal klassen en interfaces, dit maakt het complex

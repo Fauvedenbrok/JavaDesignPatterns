@@ -1,0 +1,16 @@
+Normaal gesproken zou je verwachten dat je meerdere objecten van een klasse moet maken. Echter, in sommige gevallen wil je slechts één enkel object van een klasse hebben gedurende de levensduur van een applicatie. Dit is waar het Singleton-patroon van pas komt.
+
+Het Singleton-patroon zorgt ervoor dat een klasse slechts één instantie heeft en biedt een globale toegangspunt tot die instantie. Dit is vooral nuttig in situaties waar een enkele instantie nodig is om gedeelde bronnen te beheren, zoals een klasse voor een databaseverbinding. In dit geval wil je geen meerdere instanties van de databaseverbinding hebben, dit kan namelijk leiden tot conflicten.
+
+Hieronder een aantal use-cases waar je het SIngleton-patroon zou kunnen toepassen:
+- database connecties
+- logging
+- configuratie instellingen
+- toegang tot hardware bronnen
+
+Belangrijk om rekening mee te houden wanneer je het Singelton-patroon gebruikt zijn Threads, ofwel Coroutines in Kotlin; je moet zorgen dat de Singleton thread-safe is, zodat meerdere threads niet tegelijkertijd een nieuwe instantie kunnen maken.
+
+Als laatste is het goed om je af te vragen of je wel een Singleton-patroon moet gebruiken. Het heeft namelijk verschillende nadelen, terwijl er mogelijk betere alternatieven zijn:
+- Singletons kunnen het moeilijker maken om code te testen, omdat ze globale staat introduceren. Dit kan leiden tot onverwachte bijwerkingen tussen tests. Ook kun je niet zomaar een mock van een Singleton maken (want het is een singleton).
+- Singletons overtreden technisch gezien het 'Single Responsibility Principle', omdat ze zowel de verantwoordelijkheid hebben om hun eigen instantie te beheren als om hun eigen functionaliteit te bieden.
+- In sommige gevallen kunnen dependency injection frameworks een beter alternatief bieden voor het beheren van gedeelde instant
